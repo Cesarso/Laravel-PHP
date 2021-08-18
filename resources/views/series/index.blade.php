@@ -20,12 +20,14 @@ Séries
             <!--usando php: -->
             <!--<li class="list-group-item">/*$serie; */</li> -->
             <!--usando blade: -->
-                <li class="list-group-item">
-                    {{ $serie->nome }}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ $serie->nome }}
                     <form method="post" action="/series/{{ $serie->id}}" onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes( $serie->nome )}}?')">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger">Excluir</button>
+                        <button class="btn btn-danger">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
                     </form>
                 </li>
         @endforeach

@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\SeriesFormRequest;
 use App\Serie;
 use Illuminate\Http\Request;
 
@@ -28,8 +29,15 @@ class SeriesController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function store(SeriesFormRequest $request)
     {
+        /*
+            Foi colocado pra validar lá em Http->Requests->SerieFormRequest
+            $request->validate([
+            'nome'=> 'required|min:3' /*minimo de caracter
+        ]);
+
+        */
 
         /*nos poupa tempo*/
         $serie= Serie::create($request->all());
@@ -46,7 +54,7 @@ class SeriesController extends Controller
 
 
         /*redireciona de POST apar GET*/
-        return redirect('/series');
+        return redirect()->route('listar_series');
 
 
     }
@@ -62,7 +70,7 @@ class SeriesController extends Controller
                 "Série removida com sucesso"
             );
 
-        return redirect('/series');
+        return redirect()->route('listar_series');
 
     }
 

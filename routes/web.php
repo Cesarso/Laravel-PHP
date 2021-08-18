@@ -19,8 +19,8 @@ Route::get('index', function (){
     echo "Olá Mundo";
 });
 */
-Route::get('/series', 'SeriesController@index');
+Route::get('/series', 'SeriesController@index')->name('listar_series');;
 //nova rota para função de criar nova serie
-Route::get('/series/criar', 'SeriesController@create');
+Route::get('/series/criar', 'SeriesController@create')->name('form_criar_serie');
 Route::post('/series/criar', 'SeriesController@store');
 Route::delete('/series/{id}', 'SeriesController@destroy');
