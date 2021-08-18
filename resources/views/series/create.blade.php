@@ -6,7 +6,9 @@
 @endsection
 
 @section('conteudo')
-    <div class="container">        <form method="post">
+    <div class="container">
+        <form method="post">
+            @csrf
             <div class="form-group">
                 <label for="nome">Nome</label>
                 <input type="text" class="form-control" name="nome" id="nome">

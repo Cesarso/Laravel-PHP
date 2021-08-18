@@ -22,3 +22,5 @@ Route::get('index', function (){
 Route::get('/series', 'SeriesController@index');
 //nova rota para função de criar nova serie
 Route::get('/series/criar', 'SeriesController@create');
+Route::post('/series/criar', 'SeriesController@store');
+Route::delete('/series/{id}', 'SeriesController@destroy');
